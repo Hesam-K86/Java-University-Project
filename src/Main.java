@@ -9,7 +9,7 @@ public class Main {
                 case 1:StudentAct(); break;
                 case 2:CourseAct(); break;
                 case 3: return;
-                case 4:CourseAct(); return;
+                case 4: return;
             }
         }while(true);
     }
