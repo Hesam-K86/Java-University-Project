@@ -1,21 +1,30 @@
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
 public class ClsStudent implements IORM {
     private static String[] FileContent;
     private static String FilePath="Files/DbStudent.txt";
     public ClsStudent() {
         try {
             File MyFile = new File(FilePath);
-            if(!MyFile.exists()){
-               MyFile.createNewFile();
-            }else {
-                FileReader FR=new FileReader(FilePath);
-                FileContent =FR.readAllLines().toArray(new String[FileContent.length]);
-//                System.out.println(ّFileContent[0].toString());
+            if (!MyFile.exists()) {
+                MyFile.createNewFile();
+                FileContent = new String[0];
+            } else {
+                BufferedReader reader = new BufferedReader(new FileReader(MyFile));
+                List<String> linesList = new ArrayList<>();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    linesList.add(line);
+                }
+                reader.close();
+                FileContent = linesList.toArray(new String[0]);
             }
         } catch (Exception e) {
-
+            e.printStackTrace(); // این خط مهم است!
         }
     }
     @Override
