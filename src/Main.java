@@ -41,15 +41,16 @@ public class Main {
     }
     private static void StudentAct(){
         short Res = 0;
-        IORM Reg=new ClsStudent();
         try {
             do {
+                IORM Reg=new ClsStudent();
                 System.out.println("--------------منو دانشجو---------------");
                 System.out.println("1_ افزودن دانشجو");
                 System.out.println("2_ ویرایش دانشجو");
                 System.out.println("3_ جستجو دانشجو");
                 System.out.println("4_ حذف دانشجو");
-                System.out.println("5_ بازگشت");
+                System.out.println("5_ لیست دانشجو ها");
+                System.out.println("6_ بازگشت");
                 System.out.println("--------------منو دانشجو---------------");
                 Res = Sc.nextShort();
                 Sc.nextLine();
@@ -60,11 +61,40 @@ public class Main {
                     continue;
                 }
                 switch(Res){
-                    case 1: Reg.Insert(); break;
-                    case 2: Reg.Update(); break;
-                    case 3: Reg.Search(); break;
-                    case 4: Reg.Delete(); break;
-                    case 5: return;
+                    case 1:
+                        if (Reg.Insert()){
+                            System.out.println("--------------اعلان---------------");
+                            System.out.println("ثبت دانشجو با موفقیت انجم شد");
+                            System.out.println("--------------اعلان---------------");
+                        }
+                        break;
+                    case 2:
+                        if (Reg.Update()){
+                            System.out.println("--------------اعلان---------------");
+                            System.out.println("ویرایش دانشجو با موفقیت انجم شد");
+                            System.out.println("--------------اعلان---------------");
+                            }
+                        break;
+                    case 3:
+                        if (Reg.Search()){
+                            System.out.println("--------------اعلان---------------");
+                            System.out.println("دانشجو پیدا شد");
+                            System.out.println("--------------اعلان---------------");
+                        }else {
+                            System.out.println("--------------اعلان---------------");
+                            System.out.println("دانشجویی با کد ملی وارد شده پیدا نشد");
+                            System.out.println("--------------اعلان---------------");
+                        }
+                        break;
+                    case 4:
+                        if (Reg.Delete()){
+                            System.out.println("--------------اعلان---------------");
+                            System.out.println("حذف دانشجو با موفقیت انجم شد");
+                            System.out.println("--------------اعلان---------------");
+                        }
+                        break;
+                    case 5: Reg.Show(); break;
+                    case 6: return;
                 }
             } while(true);
         } catch (Exception e) {
@@ -84,7 +114,8 @@ public class Main {
                 System.out.println("2_ ویرایش دوره");
                 System.out.println("3_ جستجو دوره");
                 System.out.println("4_ حذف دوره");
-                System.out.println("5_ بازگشت");
+                System.out.println("5_ نمایش دوره ها");
+                System.out.println("6_ بازگشت");
                 System.out.println("--------------منو دوره---------------");
                 Res = Sc.nextShort();
                 Sc.nextLine();
@@ -95,11 +126,36 @@ public class Main {
                     continue;
                 }
                 switch(Res){
-                    case 1: Reg.Insert(); break;
-                    case 2: Reg.Update(); break;
-                    case 3: Reg.Search(); break;
-                    case 4: Reg.Delete(); break;
-                    case 5: return;
+                    case 1:
+                        if (Reg.Insert()){
+                            System.out.println("--------------اعلان---------------");
+                            System.out.println("ثبت دوره با موفقیت انجم شد");
+                            System.out.println("--------------اعلان---------------");
+                        }
+                        break;
+                    case 2:
+                        if (Reg.Update()){
+                            System.out.println("--------------اعلان---------------");
+                            System.out.println("ویرایش دوره با موفقیت انجم شد");
+                            System.out.println("--------------اعلان---------------");
+                        }
+                        break;
+                    case 3:
+                        if (Reg.Search()){
+                            System.out.println("--------------اعلان---------------");
+                            System.out.println("دوره پیدا شد");
+                            System.out.println("--------------اعلان---------------");
+                        }
+                        break;
+                    case 4:
+                        if (Reg.Delete()){
+                            System.out.println("--------------اعلان---------------");
+                            System.out.println("حذف دوره با موفقیت انجم شد");
+                            System.out.println("--------------اعلان---------------");
+                        }
+                        break;
+                    case 5: Reg.Show(); break;
+                    case 6: return;
                 }
             } while(true);
         } catch (Exception e) {
