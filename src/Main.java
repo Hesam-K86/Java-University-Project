@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.io.Console;
 import java.util.Scanner;
 public class Main {
     private static Scanner Sc = new Scanner(System.in);
@@ -54,7 +53,7 @@ public class Main {
                 System.out.println("--------------منو دانشجو---------------");
                 Res = Sc.nextShort();
                 Sc.nextLine();
-                if (Res > 5 || Res < 1) {
+                if (Res > 6 || Res < 1) {
                     System.out.println("--------------اخطار---------------");
                     System.out.println("گزینه انتخاب شده در لیست نیست");
                     System.out.println("--------------اخطار---------------");
@@ -119,7 +118,7 @@ public class Main {
                 System.out.println("--------------منو دوره---------------");
                 Res = Sc.nextShort();
                 Sc.nextLine();
-                if (Res > 5 || Res < 1) {
+                if (Res > 6 || Res < 1) {
                     System.out.println("--------------اخطار---------------");
                     System.out.println("گزینه انتخاب شده در لیست نیست");
                     System.out.println("--------------اخطار---------------");
