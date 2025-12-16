@@ -71,8 +71,55 @@ public class ClsStudent implements IORM {
     }
     @Override
     public boolean Update(){
-        System.out.println("ویرایش دانشجو");
-        return true;
+       try{
+           String FName,CodeD,CodeM,Tel;
+           Scanner SC = new Scanner(System.in);
+           boolean IsComplete=true;
+           do{
+               int Index=Search();
+               if(!(Index==-1))
+               {
+                    System.out.println("--------------اعلان---------------");
+                    System.out.println("برای خروج نام کامل را برابر -1 قرار دهید");
+                    System.out.println("--------------اعلان---------------");
+                    do{
+                        System.out.println("نام کامل خود را وارد کنید: ");
+                        FName=SC.nextLine();
+                        if(FName.equals("-1"))
+                            return false;
+                        System.out.println("کد دانشجویی خود را وارد کنید: ");
+                        CodeD=SC.nextLine();
+                        System.out.println("کد ملی خود را وارد کنید: ");
+                        CodeM=SC.nextLine();
+                        System.out.println("شماره تلفن خود را وارد کنید: ");
+                        Tel=SC.nextLine();
+                        if(FName.isEmpty()||CodeD.isEmpty()||CodeM.isEmpty()||Tel.isEmpty()){
+                            IsComplete=true;
+                            System.out.println("--------------اخطار---------------");
+                            System.out.println("اطلاعات خود را کامل وارد کنید");
+                            System.out.println("--------------اخطار---------------");
+                        }
+                        else
+                            IsComplete=false;
+                    }while(IsComplete);
+                    FileContent[Index]=FName+"|"+CodeD+"|"+CodeM+"|"+Tel;
+                    FileWriter FW = new FileWriter(FilePath,false);
+                    FW.close();
+                    FW=new FileWriter(FilePath,true);
+                    for (int i = 0; i < FileContent.length; i++) {
+                        FW.write(FileContent[i]+"\n");
+                    }
+                    FW.close();
+               }else{
+                    System.out.println("دانشجویی با کد ملی وارد شده پیدا نشد");
+                    return false;
+               }
+               return true;
+           }while(true);
+       }catch(Exception ex){
+           ex.printStackTrace();
+           return false;
+       }
     }
     @Override
     public boolean Delete(){
@@ -80,7 +127,7 @@ public class ClsStudent implements IORM {
         return true;
     }
     @Override
-    public boolean Search() {
+    public int Search() {
         try {
             Scanner SC = new Scanner(System.in);
             System.out.println("--------------فرم جستجو---------------");
@@ -91,18 +138,28 @@ public class ClsStudent implements IORM {
                 String[] Row = FileContent[i].split("\\|");
                 if (Row[2].equals(CodeM)) {
                     System.out.println(FileContent[i]);
-                    return true;
+                    return i;
                 }
             }
         }catch (Exception ex){
             ex.printStackTrace();
-            return false;
+            return -1;
         }
-        return false;
+        return -1;
     }
     @Override
     public boolean Show() {
-        System.out.println("نمایش دانشجو ها");
+        System.out.println("--------------لیست دانشجو ها---------------");
+        try {
+            for (int i = 0; i < FileContent.length; i++) {
+                System.out.println((i+1)+": "+FileContent[i]);
+                System.out.println();
+            }
+            System.out.println("تعداد کل: "+FileContent.length);
+            System.out.println("--------------لیست دانشجو ها---------------");
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
         return true;
     }
 }

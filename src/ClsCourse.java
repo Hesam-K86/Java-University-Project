@@ -15,9 +15,9 @@ public class ClsCourse implements IORM {
         return true;
     }
     @Override
-    public boolean Search() {
+    public int Search() {
         System.out.println("جستجو دوره");
-        return true;
+        return -1;
     }
     @Override
     public boolean Show() {

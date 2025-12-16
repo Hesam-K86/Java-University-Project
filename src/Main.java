@@ -75,7 +75,7 @@ public class Main {
                             }
                         break;
                     case 3:
-                        if (Reg.Search()){
+                        if (!(Reg.Search()==-1)){
                             System.out.println("--------------اعلان---------------");
                             System.out.println("دانشجو پیدا شد");
                             System.out.println("--------------اعلان---------------");
@@ -140,7 +140,7 @@ public class Main {
                         }
                         break;
                     case 3:
-                        if (Reg.Search()) {
+                        if (!(Reg.Search()==-1)) {
                             System.out.println("--------------اعلان---------------");
                             System.out.println("دوره پیدا شد");
                             System.out.println("--------------اعلان---------------");

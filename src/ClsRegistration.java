@@ -15,9 +15,9 @@ public class ClsRegistration implements  IORM{
         return true;
     }
     @Override
-    public boolean Search() {
+    public int Search() {
         System.out.println("جستجو کلاس");
-        return true;
+        return -1;
     }
     @Override
     public boolean Show() {
