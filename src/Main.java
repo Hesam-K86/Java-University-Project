@@ -104,9 +104,9 @@ public class Main {
             Sc.nextLine();
         }
     }
-    private static void CourseAct(){
+    private static void CourseAct() {
         short Res = 0;
-        IORM Reg=new ClsCourse();
+        IORM Reg = new ClsCourse();
         try {
             do {
                 System.out.println("--------------منو دوره---------------");
@@ -125,39 +125,42 @@ public class Main {
                     System.out.println("--------------اخطار---------------");
                     continue;
                 }
-                switch(Res){
+                switch (Res) {
                     case 1:
-                        if (Reg.Insert()){
+                        if (Reg.Insert()) {
                             System.out.println("--------------اعلان---------------");
                             System.out.println("ثبت دوره با موفقیت انجم شد");
                             System.out.println("--------------اعلان---------------");
                         }
                         break;
                     case 2:
-                        if (Reg.Update()){
+                        if (Reg.Update()) {
                             System.out.println("--------------اعلان---------------");
                             System.out.println("ویرایش دوره با موفقیت انجم شد");
                             System.out.println("--------------اعلان---------------");
                         }
                         break;
                     case 3:
-                        if (Reg.Search()){
+                        if (Reg.Search()) {
                             System.out.println("--------------اعلان---------------");
                             System.out.println("دوره پیدا شد");
                             System.out.println("--------------اعلان---------------");
                         }
                         break;
                     case 4:
-                        if (Reg.Delete()){
+                        if (Reg.Delete()) {
                             System.out.println("--------------اعلان---------------");
                             System.out.println("حذف دوره با موفقیت انجم شد");
                             System.out.println("--------------اعلان---------------");
                         }
                         break;
-                    case 5: Reg.Show(); break;
-                    case 6: return;
+                    case 5:
+                        Reg.Show();
+                        break;
+                    case 6:
+                        return;
                 }
-            } while(true);
+            } while (true);
         } catch (Exception e) {
             System.out.println("--------------اخطار---------------");
             System.out.println("گزینه انتخاب شده در لیست نیست");
@@ -165,5 +168,4 @@ public class Main {
             Sc.nextLine();
         }
     }
-    ;
 }
