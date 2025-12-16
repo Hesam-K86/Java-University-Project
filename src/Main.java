@@ -88,7 +88,11 @@ public class Main {
                     case 4:
                         if (Reg.Delete()){
                             System.out.println("--------------اعلان---------------");
-                            System.out.println("حذف دانشجو با موفقیت انجم شد");
+                            System.out.println("حذف دانشجو با موفقیت انجام شد");
+                            System.out.println("--------------اعلان---------------");
+                        }else {
+                            System.out.println("--------------اعلان---------------");
+                            System.out.println("حذف دانشجو انجام نشد");
                             System.out.println("--------------اعلان---------------");
                         }
                         break;
@@ -135,7 +139,7 @@ public class Main {
                     case 2:
                         if (Reg.Update()) {
                             System.out.println("--------------اعلان---------------");
-                            System.out.println("ویرایش دوره با موفقیت انجم شد");
+                            System.out.println("ویرایش دوره با موفقیت انجام شد");
                             System.out.println("--------------اعلان---------------");
                         }
                         break;
@@ -149,7 +153,7 @@ public class Main {
                     case 4:
                         if (Reg.Delete()) {
                             System.out.println("--------------اعلان---------------");
-                            System.out.println("حذف دوره با موفقیت انجم شد");
+                            System.out.println("حذف دوره با موفقیت انجام شد");
                             System.out.println("--------------اعلان---------------");
                         }
                         break;

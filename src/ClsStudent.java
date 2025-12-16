@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -123,8 +124,35 @@ public class ClsStudent implements IORM {
     }
     @Override
     public boolean Delete(){
-        System.out.println("حذف دانشجو");
-        return true;
+        try{
+            Scanner SC = new Scanner(System.in);
+            int Index=Search();
+            if(!(Index==-1)){
+                System.out.println("--------------هشدار---------------");
+                System.out.println("آیا از حذف دانشجو اطمینان دارید؟آ(آره)/ن(نه)");
+                System.out.println("غیر از این دو گزینه به معنی نه است");
+                System.out.println("--------------هشدار---------------");
+                String Res=SC.nextLine();
+                if(Res.equals("آ")){
+                    List<String> RemovedList=new ArrayList<>(Arrays.asList(FileContent));
+                    RemovedList.remove(Index);
+                    FileContent=RemovedList.toArray(new String[RemovedList.size()]);
+                    FileWriter FW = new FileWriter(FilePath,false);
+                    FW.close();
+                    FW=new FileWriter(FilePath,true);
+                    for (int i = 0; i < FileContent.length; i++) {
+                        FW.write(FileContent[i]+"\n");
+                    }
+                    FW.close();
+                    return true;
+                }
+                return  false;
+            }
+        }catch(Exception ex){
+            ex.printStackTrace();
+            return false;
+        }
+        return false;
     }
     @Override
     public int Search() {
