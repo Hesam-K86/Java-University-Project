@@ -163,10 +163,12 @@ public class ClsStudent implements IORM {
             System.out.println("کد ملی دانشجو مورد نظر را وارد کنید: ");
             String CodeM = SC.nextLine();
             for (int i = 0; i < FileContent.length; i++) {
-                String[] Row = FileContent[i].split("\\|");
-                if (Row[2].equals(CodeM)) {
-                    System.out.println(FileContent[i]);
-                    return i;
+                if (!FileContent[i].equals("")) {
+                    String[] Row = FileContent[i].split("\\|");
+                    if (Row[2].equals(CodeM)) {
+                        System.out.println(FileContent[i]);
+                        return i;
+                    }
                 }
             }
         }catch (Exception ex){
