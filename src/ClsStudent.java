@@ -62,7 +62,7 @@ public class ClsStudent implements IORM {
                     IsComplete=false;
             }while(IsComplete);
             FileWriter FW = new FileWriter(FilePath,true);
-            FW.write("\n"+FName+"|"+CodeD+"|"+CodeM+"|"+Tel);
+            FW.write(FName+"|"+CodeD+"|"+CodeM+"|"+Tel+"\n");
             FW.close();
             return true;
         }catch(Exception ex){
