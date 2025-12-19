@@ -60,6 +60,17 @@ public class ClsStudent implements IORM {
                 }
                 else
                     IsComplete=false;
+                for (int i = 0; i < FileContent.length; i++) {
+                    if (!FileContent[i].equals("")) {
+                        String[] Row = FileContent[i].split("\\|");
+                        if (Row[2].equals(CodeM)) {
+                            System.out.println("--------------اعلان---------------");
+                            System.out.println(" کاربری با کد ملی"+CodeM+" قبلا ثبت شده است");
+                            System.out.println("--------------اعلان---------------");
+                            IsComplete=true;
+                        }
+                    }
+                }
             }while(IsComplete);
             FileWriter FW = new FileWriter(FilePath,true);
             FW.write(FName+"|"+CodeD+"|"+CodeM+"|"+Tel+"\n");
