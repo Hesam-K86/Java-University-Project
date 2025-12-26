@@ -1,4 +1,7 @@
 public class ClsCourse implements IORM {
+    public ClsCourse() {
+
+    }
     @Override
     public boolean Insert(){
         System.out.println("افزودن دوره");
